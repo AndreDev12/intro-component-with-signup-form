@@ -1,0 +1,271 @@
+:root{
+  --backgroundImageDesktop: url('../assets/images/bg-intro-desktop.png');
+  --backgroundImageMobile: url('../assets/images/bg-intro-mobile.png');
+  --blue: #6055a5;
+  --blue-alpha: #6055a599;
+  --dark-blue: #3e3c49;
+  --grayish-blue: #b9b6d3;
+  --green: #38cc8c;
+  --light: #ffffff;
+  --red: #ff7a7a;
+}
+
+html{
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*, *:before, *:after{
+  box-sizing: inherit;
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+h1{
+  margin: 0;
+}
+
+body{
+  background-color: var(--red);
+  background-image: var(--backgroundImageMobile);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main{
+  margin-top: 9.3rem;
+}
+
+.container{
+  margin: 0 auto;
+  max-width: 1134px;
+  width: 90%;
+}
+
+.main-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 6rem;
+}
+
+.information{
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.3rem;
+  text-align: center;
+}
+
+.title{
+  font-size: 2.7rem;
+  line-height: 1.28;
+}
+
+.information-paragraph{
+  line-height: 1.66;
+  opacity: .8;
+  padding-inline: 1rem;
+}
+
+.signup{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 2.2rem;
+}
+
+.try{
+  background-color: var(--blue);
+  border-radius: 1rem;
+  box-shadow: 0 .6rem rgba(0, 0, 0, .2);
+  color: var(--light);
+  display: flex;
+  height: 9rem;
+}
+
+.try-paragraph{
+  flex-basis: 100%;
+  line-height: 1.66;
+  margin: auto;
+  margin-inline: 5rem;
+  opacity: .8;
+  text-align: center;
+}
+
+.free{
+  font-weight: 700;
+}
+
+.form{
+  background-color: var(--light);
+  border-radius: 1rem;
+  box-shadow: 0 .6rem rgba(0, 0, 0, .2);
+  padding: 2.5rem 2rem;
+}
+
+.input-group{
+  height: 5.7rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+input{
+  border-radius: .5rem;
+  height: inherit;
+  outline: none;
+  padding: 1rem 5.5rem 1rem 2rem;
+  width: 100%;
+}
+
+.valid{
+  border: 1px solid var(--grayish-blue);
+  font-weight: 500;
+  transition: border .3s;
+}
+
+.invalid{
+  border: 2px solid var(--red);
+}
+
+.icon{
+  height: 2.5rem;
+  position: absolute;
+  right: 3rem;
+  top: 1.5rem;
+  width: 2.5rem;
+}
+
+.icon svg{
+  height: 100%;
+  width: 100%;
+}
+
+.error-paragraph{
+  color: var(--red);
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: .5rem;
+  text-align: right;
+}
+  
+input[type="submit"]{
+  background-color: var(--green);
+  border: 0;
+  box-shadow: 0 .3rem #03b366;
+  color: var(--light);
+  margin-bottom: 1.5rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  transition: opacity .3s;
+}
+
+input[type="submit"]:hover{
+  cursor: pointer;
+  opacity: .8;
+}
+
+.valid:hover{
+  border: .2rem solid var(--blue-alpha);
+}
+
+.form-paragraph{
+  color: var(--grayish-blue);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding-inline: 2.5rem;
+  text-align: center;
+}
+
+.terms-services{
+  color: var(--red);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.footer{
+  color: var(--light);
+}
+
+.attribution{
+  font-size: 1.2rem;
+  margin-block: 2rem;
+  opacity: .8;
+  text-align: center;
+}
+
+.link{
+  color: var(--blue);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 376px){
+  body{
+    background-color: var(--red);
+    background-image: var(--backgroundImageDesktop);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .main-wrapper{
+    column-gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  .information{
+    justify-content: center;
+    row-gap: 2.7rem;
+  }
+
+  .title{
+    font-size: 4rem;
+    line-height: 1.08;
+    margin-top: 4.5rem;
+    text-align: left;
+  }
+
+  .information-paragraph{
+    font-size: 1.65rem;
+    padding-inline: 0;
+    text-align: left;
+  }
+
+  .signup{
+    row-gap: 2.5rem;
+  }
+
+  .try{
+    height: 6.5rem;
+  }
+
+  .form{
+    padding: 4rem 3.5rem;
+  }
+
+  .input-group{
+    margin-bottom: 3rem;
+  }
+
+  .attribution{
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .main{
+    margin-top: 12rem;
+  }
+
+  .title{
+    font-size: 5rem;
+  }
+}
