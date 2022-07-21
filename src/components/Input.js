@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { ReactComponent as IconError } from '../assets/icon/icon-error.svg';
 
 const Input = ({changeStatus, type, name, placeholder, state, autoComplete, message}) => {
     
@@ -57,17 +57,19 @@ const Input = ({changeStatus, type, name, placeholder, state, autoComplete, mess
                 className={!state.valid ? "invalid": "valid"}
                 onBlur={handleBlur}
             />
-            {!state.valid ? 
-            <Fragment>
-                <i 
-                    className="icon"
-                >
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fillRule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg> 
-                </i>
-                <p
-                    className="error-paragraph"
-                >{message}</p>
-            </Fragment> : null}
+            {
+                !state.valid ? 
+                <>
+                    <i 
+                        className="icon"
+                    >
+                        <IconError />
+                    </i>
+                    <p
+                        className="error-paragraph"
+                    >{message}</p>
+                </> : null
+            }
         </div>
     );
 }

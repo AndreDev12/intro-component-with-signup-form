@@ -4,16 +4,7 @@ import Submit from "./Submit";
 
 const Form = () => {
 
-    const {
-        first,
-        setFirst,
-        last,
-        setLast,
-        email,
-        setEmail,
-        password,
-        setPassword,
-        handleSubmit} = useForm();
+    const { first, setFirst, last, setLast, email, setEmail, password, setPassword, handleSubmit } = useForm();
 
     return ( 
         <form 
