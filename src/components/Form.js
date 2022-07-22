@@ -4,7 +4,7 @@ import Submit from "./Submit";
 
 const Form = () => {
 
-    const { first, setFirst, last, setLast, email, setEmail, password, setPassword, handleSubmit } = useForm();
+    const { firstName, lastName, email, password, setFirstName, setLastName, setEmail, setPassword, handleSubmit} = useForm();
 
     return ( 
         <form 
@@ -13,18 +13,18 @@ const Form = () => {
         >
             <Input
                 type="text"
-                name="first"
-                state={first}
-                changeStatus={setFirst}
+                name="firstName"
+                state={firstName}
+                changeStatus={setFirstName}
                 placeholder="First Name"
                 autoComplete="off"
                 message="First Name cannot be empty"
             />
             <Input
                 type="text"
-                name="last"
-                state={last}
-                changeStatus={setLast}
+                name="lastName"
+                state={lastName}
+                changeStatus={setLastName}
                 placeholder="Last Name"
                 autoComplete="off"
                 message="Last Name cannot be empty"
@@ -45,11 +45,11 @@ const Form = () => {
                 changeStatus={setPassword}
                 placeholder="Password"
                 autoComplete="off"
-                message="Password cannot be empty"
+                message="Write at least 4 characters"
             />
             <Submit 
-                type={"submit"}
-                value={"Claim your free trial"}
+                type="submit"
+                value={(firstName.property.trim() === '' || lastName.property.trim() === '' || email.property.trim() === '' || password.property.trim() === '') ? "Claim your free trial" : "Validation passed!"}
             />
             <p className="form-paragraph">By clicking the button, you are agreeing to our <span className="terms-services">Terms and Services</span></p>
         </form>

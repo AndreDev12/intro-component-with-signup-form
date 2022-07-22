@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { ReactComponent as IconError } from '../assets/icon/icon-error.svg';
 
-const Input = ({changeStatus, type, name, placeholder, state, autoComplete, message}) => {
+const Input = ({type, name, state, changeStatus, placeholder, autoComplete, message}) => {
     
-    const expressions = {
-        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letters and spaces can carry accents
-        password: /^.{4,12}$/, // 4 to 12 digits
+    const regularExpressions = {
+        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, 
+        password: /^.{4,12}$/,
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
     }
 
@@ -20,21 +20,21 @@ const Input = ({changeStatus, type, name, placeholder, state, autoComplete, mess
     const handleBlur = ({target}) => {
         switch(target.type) {
             case 'text':
-                if(expressions.name.test(target.value)){
+                if(regularExpressions.name.test(target.value)){
                     changeStatus({...state, valid: true});
                     return;
                 }
                 changeStatus({...state, valid: false});
                 break;
             case 'email':
-                if(expressions.email.test(target.value)){
+                if(regularExpressions.email.test(target.value)){
                     changeStatus({...state, valid: true});
                     return;
                 }
                 changeStatus({property: '', valid: false});
                 break;
             default:
-                if(expressions.password.test(target.value)){
+                if(regularExpressions.password.test(target.value)){
                     changeStatus({...state, valid: true});
                     return;
                 }
@@ -58,7 +58,7 @@ const Input = ({changeStatus, type, name, placeholder, state, autoComplete, mess
                 onBlur={handleBlur}
             />
             {
-                !state.valid ? 
+                !state.valid &&
                 <>
                     <i 
                         className="icon"
@@ -68,7 +68,7 @@ const Input = ({changeStatus, type, name, placeholder, state, autoComplete, mess
                     <p
                         className="error-paragraph"
                     >{message}</p>
-                </> : null
+                </>
             }
         </div>
     );

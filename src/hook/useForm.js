@@ -2,19 +2,19 @@ import { useState } from "react";
 
 const useForm = () => {
 
-    const [first, setFirst] = useState({property: '', valid: 'null'});
-    const [last, setLast] = useState({property: '', valid: 'null'});
+    const [firstName, setFirstName] = useState({property: '', valid: 'null'});
+    const [lastName, setLastName] = useState({property: '', valid: 'null'});
     const [email, setEmail] = useState({property: '', valid: 'null'});
     const [password, setPassword] = useState({property: '', valid: 'null'});
 
     function handleSubmit(e){
         e.preventDefault();
-        if(first.property.trim() === '' || last.property.trim() === '' || email.property.trim() === '' || password.property.trim() === ''){
-            if(first.valid === 'null'){
-                setFirst({...first, valid: false})
+        if(firstName.property.trim() === '' || lastName.property.trim() === '' || email.property.trim() === '' || password.property.trim() === ''){
+            if(firstName.valid === 'null'){
+                setFirstName({...firstName, valid: false})
             }
-            if(last.valid === 'null'){
-                setLast({...last, valid: false});
+            if(lastName.valid === 'null'){
+                setLastName({...lastName, valid: false});
             }
             if(email.valid === 'null'){
                 setEmail({...email, valid: false});
@@ -25,8 +25,8 @@ const useForm = () => {
             return;
         }
         setTimeout(() => {
-            setFirst({property: '', valid: 'null'});
-            setLast({property: '', valid: 'null'});
+            setFirstName({property: '', valid: 'null'});
+            setLastName({property: '', valid: 'null'});
             setEmail({property: '', valid: 'null'});
             setPassword({property: '', valid: 'null'});
         }, 4000);
@@ -34,13 +34,13 @@ const useForm = () => {
 
     return ( 
         {
-            first,
-            setFirst,
-            last,
-            setLast,
+            firstName,
+            lastName,
             email,
-            setEmail,
             password,
+            setFirstName,
+            setLastName,
+            setEmail,
             setPassword,
             handleSubmit
         }
